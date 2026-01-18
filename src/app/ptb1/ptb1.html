@@ -1,0 +1,29 @@
+<p>Giải phương trình: ax + b = 0</p>
+<table>
+    <tbody>
+        <tr>
+            <td>a:</td>
+            <td>
+                <input type="number" #hsa>
+            </td>
+        </tr>
+        <tr>
+            <td>b:</td>
+            <td>
+                <input type="number" #hsb>
+            </td>
+        </tr>
+        <tr>
+            <td>Result:</td>
+            <td>
+                <strong>{{result}}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="get_solution(hsa, hsb)">Solution</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
