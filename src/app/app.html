@@ -1,1 +1,38 @@
-<app-catalog></app-catalog>
+<div id="container">  
+<ul>
+<li> <a href="#">HOME</a></li>
+<li> <a href="#">CUSTOMER</a>
+<ul>
+    <li> <a routerLink="/khach-hang-2">CUSTOMER 2</a></li>
+</ul>
+</li>
+ <li> <a href="#">PRODUCTS</a>
+    <ul>
+     <li> <a routerLink="/products">PRODUCT 1</a></li>
+     <li> <a href="#">PRODUCT 2</a></li>
+     <li> <a href="#">PRODUCT 3</a></li>
+     <li> <a routerLink="/fake-products">ex26</a>
+         <ul>
+             <li><a routerLink="/ex27">ex27</a></li>
+         </ul>
+     </li>
+   </ul>
+  </li>
+  <li> <a href="#">JAVASCRIPT</a>
+   <ul>
+       <li> <a href="#">LESSON 01</a></li>
+       <li> <a href="#">LESSON 02</a></li>
+       <li> <a href="#">LESSON 03</a></li>
+   </ul>
+  </li>
+ <li> <a routerLink="/bitcoin">Ex28</a></li>
+ <li> <a href="#">HTML DOM</a></li>
+ <li> <a href="#">NGÔN NGỮ ASP</a></li>
+ <li> <a routerLink="/gioi-thieu">ABOUT</a></li>
+ 
+
+</ul>
+</div> 
+
+<router-outlet></router-outlet>
+

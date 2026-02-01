@@ -1,0 +1,42 @@
+<h1>Bitcoin Price Index (BPI)</h1>
+
+<div *ngIf="data && data.bpi">
+  <p><strong>Last Updated:</strong> {{ data.time?.updated }}</p>
+  <p><strong>Disclaimer:</strong> {{ data.disclaimer }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Currency</th>
+        <th>Symbol</th>
+        <th>Rate</th>
+        <th>Description</th>
+        <th>Rate (Float)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="data.bpi.USD">
+        <td>{{ data.bpi.USD.code }}</td>
+        <td>{{ data.bpi.USD.symbol }}</td>
+        <td>{{ data.bpi.USD.rate }}</td>
+        <td>{{ data.bpi.USD.description }}</td>
+        <td>{{ data.bpi.USD.rate_float }}</td>
+      </tr>
+      <tr *ngIf="data.bpi.GBP">
+        <td>{{ data.bpi.GBP.code }}</td>
+        <td>{{ data.bpi.GBP.symbol }}</td>
+        <td>{{ data.bpi.GBP.rate }}</td>
+        <td>{{ data.bpi.GBP.description }}</td>
+        <td>{{ data.bpi.GBP.rate_float }}</td>
+      </tr>
+      <tr *ngIf="data.bpi.EUR">
+        <td>{{ data.bpi.EUR.code }}</td>
+        <td>{{ data.bpi.EUR.symbol }}</td>
+        <td>{{ data.bpi.EUR.rate }}</td>
+        <td>{{ data.bpi.EUR.description }}</td>
+        <td>{{ data.bpi.EUR.rate_float }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
