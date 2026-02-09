@@ -1,0 +1,22 @@
+<p>books works!</p>
+{{errMessage}}
+<table border="1">
+    <tr>
+        <td>BookId</td>
+        <td>BookName</td>
+        <td>Price</td>
+        <td>Image</td>
+    </tr>
+    <tbody>
+        <tr *ngFor="let book of books" (click)="viewBookDetail(book.BookId)" class="clickable-row">
+            <td>{{book.BookId}}</td>
+            <td>{{book.BookName}}</td>
+            <td>{{book.Price}}</td>
+            <td>
+                <img *ngIf="book.Image" [src]="'/image/' + book.Image" width="50px" height="50px" alt="Book Image">
+                <span *ngIf="!book.Image">No Image</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

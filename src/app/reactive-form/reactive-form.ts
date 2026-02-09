@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule, UpperCasePipe } from '@angular/common';
 import { customValidator, passwordValidator } from './check-validator';
 
 @Component({
   selector: 'app-reactive-form',
-  standalone: false,
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule, UpperCasePipe],
   templateUrl: './reactive-form.html',
   styleUrl: './reactive-form.css',
 })

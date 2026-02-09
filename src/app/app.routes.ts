@@ -5,6 +5,12 @@ import { NotFound } from './not-found/not-found';
 import { Ex28 } from './ex28/ex28';
 import { Ex27 } from './ex27/ex27';
 import { Ex26 } from './ex26/ex26';
+import { Books } from './books/books';
+import { BookDetail } from './book-detail/book-detail';
+import { BookNew } from './book-new/book-new';
+import { BookUpdate } from './book-update/book-update';
+import { BookDelete } from './book-delete/book-delete';
+import { FileUpload } from './file-upload/file-upload';
 
 export const routes: Routes = [
   { path: 'products', component: ListProduct },
@@ -12,5 +18,12 @@ export const routes: Routes = [
   { path: 'bitcoin', component: Ex28 },
   { path: 'ex27', component: Ex27 },
   { path: 'fake-products', component: Ex26 },
+  { path: 'books', component: Books },
+  { path: 'book-detail/:id', component: BookDetail },
+  { path: 'book-detail', component: BookDetail },
+  { path: 'book-new', component: BookNew },
+  { path: 'book-update', component: BookUpdate },
+  { path: 'book-delete', component: BookDelete },
+  { path: 'file-upload', component: FileUpload },
   { path: '**', component: NotFound }
 ];
