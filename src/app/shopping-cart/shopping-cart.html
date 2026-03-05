@@ -1,0 +1,78 @@
+<div class="shop-container">
+    <h2>🛍️ Product List</h2>
+
+    @if (message) {
+    <div class="toast-message">{{ message }}</div>
+    }
+
+    <!-- Product Grid -->
+    @if (!showCart) {
+    <div class="product-grid">
+        @for (product of products; track product._id) {
+        <div class="product-card">
+            <img [src]="product.image" [alt]="product.name" class="product-image">
+            <div class="product-info">
+                <h4>{{ product.name }}</h4>
+                <span class="category">{{ product.category }}</span>
+                <p class="price">{{ formatPrice(product.price) }}</p>
+                <button class="btn-add" (click)="addToCart(product)">🛒 ADD TO CART</button>
+            </div>
+        </div>
+        }
+    </div>
+    }
+
+    <!-- Cart View -->
+    @if (showCart) {
+    <div class="cart-view">
+        @if (cart.length === 0) {
+        <p class="empty-cart">Your cart is empty.</p>
+        } @else {
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of cart; track item._id) {
+                <tr>
+                    <td><input type="checkbox" [(ngModel)]="item.selected"></td>
+                    <td><img [src]="item.image" [alt]="item.name" class="cart-img"></td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ formatPrice(item.price) }}</td>
+                    <td><input type="number" [(ngModel)]="item.quantity" min="1" class="qty-input"></td>
+                    <td>{{ formatPrice(item.price * (item.quantity || 1)) }}</td>
+                </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" style="text-align:right; font-weight:bold;">Total:</td>
+                    <td style="font-weight:bold;">{{ formatPrice(getTotal()) }}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="cart-actions">
+            <button class="btn-update" (click)="updateCart()">🔄 Update Shopping Cart</button>
+            <button class="btn-remove" (click)="removeSelected()">🗑️ Remove Selected</button>
+        </div>
+        }
+    </div>
+    }
+
+    <div class="nav-buttons">
+        @if (showCart) {
+        <button class="btn-continue" (click)="toggleCartView()">🛍️ Continue Shopping</button>
+        } @else {
+        <button class="btn-cart" (click)="toggleCartView()">
+            🛒 View Cart ({{ cart.length }})
+        </button>
+        }
+    </div>
+</div>

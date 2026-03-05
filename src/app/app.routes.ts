@@ -11,6 +11,9 @@ import { BookNew } from './book-new/book-new';
 import { BookUpdate } from './book-update/book-update';
 import { BookDelete } from './book-delete/book-delete';
 import { FileUpload } from './file-upload/file-upload';
+import { FashionDetailComponent } from './fashion-detail/fashion-detail';
+import { Login } from './login/login';
+import { ShoppingCart } from './shopping-cart/shopping-cart';
 
 export const routes: Routes = [
   { path: 'products', component: ListProduct },
@@ -25,5 +28,8 @@ export const routes: Routes = [
   { path: 'book-update', component: BookUpdate },
   { path: 'book-delete', component: BookDelete },
   { path: 'file-upload', component: FileUpload },
+  { path: 'fashion', component: FashionDetailComponent },
+  { path: 'login', component: Login },
+  { path: 'shopping-cart', component: ShoppingCart },
   { path: '**', component: NotFound }
 ];
