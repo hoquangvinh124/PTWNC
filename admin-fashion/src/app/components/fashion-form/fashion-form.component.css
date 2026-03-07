@@ -1,0 +1,32 @@
+/* Fashion Form Component Styles */
+
+.card {
+  border-radius: 8px;
+}
+
+.card-header {
+  border-radius: 8px 8px 0 0;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.font-monospace {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.img-thumbnail {
+  border-radius: 8px;
+}
+
+.btn-group {
+  gap: 0.5rem;
+}
