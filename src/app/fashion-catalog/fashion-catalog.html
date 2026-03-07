@@ -1,0 +1,133 @@
+<div class="container py-4">
+  <!-- Header -->
+  <div class="text-center mb-5">
+    <h1 class="display-4 mb-3">
+      <i class="bi bi-stars"></i> Fashion Catalog
+    </h1>
+    <p class="lead text-muted">Browse our latest fashion collections</p>
+  </div>
+
+  <!-- Search Section -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title mb-3">
+        <i class="bi bi-search"></i> Search by Style
+      </h5>
+      <div class="row g-3">
+        <div class="col-md-5">
+          <input 
+            type="text" 
+            class="form-control form-control-lg" 
+            [(ngModel)]="searchStyle"
+            placeholder="Enter style (e.g., Casual, Formal, Sport)"
+            (keyup.enter)="onSearchStyle()">
+        </div>
+        <div class="col-md-4">
+          <select 
+            class="form-select form-select-lg" 
+            (change)="onStyleSelect($event)">
+            <option value="">-- or Select from dropdown --</option>
+            @for (style of availableStyles(); track style) {
+              <option [value]="style">{{ style }}</option>
+            }
+          </select>
+        </div>
+        <div class="col-md-3">
+          <button 
+            class="btn btn-primary btn-lg w-100" 
+            (click)="onSearchStyle()">
+            <i class="bi bi-search"></i> Search
+          </button>
+        </div>
+      </div>
+      @if (searchStyle()) {
+        <div class="mt-3">
+          <button class="btn btn-outline-secondary btn-sm" (click)="clearSearch()">
+            <i class="bi bi-x-circle"></i> Clear Search
+          </button>
+          <span class="ms-2 text-muted">Filtering by: <strong>{{ searchStyle() }}</strong></span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  @if (loading()) {
+    <div class="text-center py-5">
+      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-3">Loading fashions...</p>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error()) {
+    <div class="alert alert-danger" role="alert">
+      <i class="bi bi-exclamation-triangle"></i> {{ error() }}
+    </div>
+  }
+
+  <!-- Fashion Groups by Style -->
+  @if (!loading() && !error()) {
+    @if (styleGroups().length === 0) {
+      <div class="text-center py-5">
+        <i class="bi bi-inbox" style="font-size: 64px; color: #ccc;"></i>
+        <p class="text-muted mt-3 fs-5">No fashions found</p>
+      </div>
+    }
+
+    @for (group of styleGroups(); track group.style) {
+      <div class="mb-5">
+        <!-- Style Header -->
+        <div class="d-flex align-items-center mb-3">
+          <h2 class="mb-0">
+            <span class="badge" [ngClass]="getStyleBadgeClass(group.style)" style="font-size: 1.5rem;">
+              {{ group.style }}
+            </span>
+          </h2>
+          <span class="ms-3 text-muted">{{ group.fashions.length }} items</span>
+        </div>
+
+        <!-- Fashion Cards in Grid -->
+        <div class="row g-4">
+          @for (fashion of group.fashions; track fashion._id) {
+            <div class="col-md-4 col-lg-3">
+              <div class="card h-100 fashion-card">
+                <!-- Thumbnail -->
+                <a [routerLink]="['/fashion-detail', fashion._id]" class="text-decoration-none">
+                  <img 
+                    [src]="fashion.thumbnail || 'https://via.placeholder.com/300x400/CCCCCC/FFFFFF?text=No+Image'" 
+                    [alt]="fashion.title"
+                    class="card-img-top fashion-thumbnail"
+                    style="height: 300px; object-fit: cover;">
+                </a>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a [routerLink]="['/fashion-detail', fashion._id]" class="text-decoration-none text-dark">
+                      {{ fashion.title }}
+                    </a>
+                  </h5>
+                  <p class="card-text text-muted small">
+                    {{ truncateText(fashion.details, 100) }}
+                  </p>
+                </div>
+                
+                <!-- Card Footer -->
+                <div class="card-footer bg-transparent border-top-0">
+                  <a 
+                    [routerLink]="['/fashion-detail', fashion._id]" 
+                    class="btn btn-outline-primary w-100">
+                    <i class="bi bi-eye"></i> View Details
+                  </a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  }
+</div>

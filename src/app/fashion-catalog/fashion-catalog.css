@@ -1,0 +1,67 @@
+.fashion-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.fashion-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.fashion-thumbnail {
+  transition: transform 0.3s ease;
+}
+
+.fashion-card:hover .fashion-thumbnail {
+  transform: scale(1.05);
+}
+
+.card-title a {
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.card-title a:hover {
+  color: #0d6efd !important;
+}
+
+.badge {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.btn-outline-primary {
+  border-width: 2px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(13, 110, 253, 0.2);
+}
+
+.display-4 {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.lead {
+  font-size: 1.25rem;
+}
+
+h2 .badge {
+  letter-spacing: 1px;
+}
+
+.card-footer {
+  padding: 1rem;
+}

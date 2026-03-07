@@ -1,0 +1,80 @@
+.editor-container {
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.NgxEditor__Wrapper {
+  border: none;
+}
+
+.NgxEditor__MenuBar {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 8px;
+}
+
+:host ::ng-deep .NgxEditor {
+  min-height: 300px;
+  padding: 12px;
+}
+
+:host ::ng-deep .NgxEditor__Content {
+  min-height: 280px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-control-lg {
+  font-size: 1.1rem;
+}
+
+.img-thumbnail {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.btn-lg {
+  padding: 10px 24px;
+  font-weight: 500;
+}
+
+:host ::ng-deep .NgxEditor__MenuItem {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+:host ::ng-deep .NgxEditor__MenuItem:hover {
+  background-color: #e9ecef;
+}
+
+:host ::ng-deep .NgxEditor__MenuItem--Active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.form-control.ng-invalid.ng-touched,
+.form-select.ng-invalid.ng-touched {
+  border-color: #dc3545;
+}
+
+.form-control.ng-valid.ng-touched,
+.form-select.ng-valid.ng-touched {
+  border-color: #198754;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15em;
+}

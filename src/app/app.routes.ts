@@ -14,6 +14,9 @@ import { FileUpload } from './file-upload/file-upload';
 import { FashionDetailComponent } from './fashion-detail/fashion-detail';
 import { Login } from './login/login';
 import { ShoppingCart } from './shopping-cart/shopping-cart';
+import { AdminFashionListComponent } from './admin-fashion-list/admin-fashion-list';
+import { AdminFashionFormComponent } from './admin-fashion-form/admin-fashion-form';
+import { FashionCatalogComponent } from './fashion-catalog/fashion-catalog';
 
 export const routes: Routes = [
   { path: 'products', component: ListProduct },
@@ -31,5 +34,13 @@ export const routes: Routes = [
   { path: 'fashion', component: FashionDetailComponent },
   { path: 'login', component: Login },
   { path: 'shopping-cart', component: ShoppingCart },
+  
+  // New Fashion System Routes
+  { path: 'admin-fashion-list', component: AdminFashionListComponent },
+  { path: 'admin-fashion-form', component: AdminFashionFormComponent },
+  { path: 'admin-fashion-form/:id', component: AdminFashionFormComponent },
+  { path: 'fashion-catalog', component: FashionCatalogComponent },
+  { path: 'fashion-detail/:id', component: FashionDetailComponent },
+  
   { path: '**', component: NotFound }
 ];

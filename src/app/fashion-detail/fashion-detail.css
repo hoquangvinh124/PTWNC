@@ -1,3 +1,4 @@
+/* Old styles */
 p {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -15,4 +16,128 @@ td {
 
 .error-container {
   color: red;
+}
+
+/* New Fashion Detail Styles */
+.fashion-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.fashion-image-container img {
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  max-height: 700px;
+}
+
+.fashion-image-container:hover img {
+  transform: scale(1.05);
+}
+
+.fashion-details {
+  padding: 20px;
+}
+
+.display-5 {
+  color: #2c3e50;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.details-section {
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid #0d6efd;
+}
+
+.fashion-content {
+  line-height: 1.8;
+  color: #333;
+  font-size: 1.05rem;
+}
+
+/* Style the HTML content from WYSIWYG editor */
+.fashion-content h1,
+.fashion-content h2,
+.fashion-content h3,
+.fashion-content h4,
+.fashion-content h5,
+.fashion-content h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.fashion-content p {
+  margin-bottom: 1rem;
+}
+
+.fashion-content ul,
+.fashion-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.fashion-content li {
+  margin-bottom: 0.5rem;
+}
+
+.fashion-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.fashion-content a {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.fashion-content a:hover {
+  color: #0a58ca;
+}
+
+.fashion-content blockquote {
+  border-left: 4px solid #dee2e6;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #6c757d;
+}
+
+.fashion-content code {
+  background-color: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.btn-lg {
+  padding: 12px 28px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+hr {
+  opacity: 0.2;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
