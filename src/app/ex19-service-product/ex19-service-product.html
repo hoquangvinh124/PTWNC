@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">⚙️ ServiceProductComponent</h4>
+        <p>Bạn đang truy cập: <strong>{{ currentUrl }}</strong></p>
+        <hr>
+        <p class="mb-0">Đây là trang sản phẩm qua Service (<code>ServiceProductComponent</code>). Routing đưa bạn đến
+            đây khi truy cập <code>http://localhost:4200/ex19-service-product</code></p>
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-header bg-dark text-white">📌 Cấu hình Routing trong <code>app.routes.ts</code></div>
+        <div class="card-body">
+            <pre class="bg-light p-3 rounded"><code>const routes: Routes = [
+  &#123;path:'ex19-product', component: Ex19Product&#125;,
+  &#123;path:'ex19-list-product', component: Ex19ListProduct&#125;,
+  &#123;path:'ex19-service-product', component: Ex19ServiceProduct&#125;,
+];</code></pre>
+        </div>
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-header bg-dark text-white">🔗 Điều hướng đến các trang khác</div>
+        <div class="card-body d-flex gap-3">
+            <a routerLink="/ex19-product" class="btn btn-primary">Product</a>
+            <a routerLink="/ex19-list-product" class="btn btn-success">List Product</a>
+            <a routerLink="/ex19-service-product" class="btn btn-warning text-dark">Service Product</a>
+        </div>
+    </div>
+</div>

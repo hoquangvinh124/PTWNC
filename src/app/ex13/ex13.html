@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    <h2>service-product-image-event works!</h2>
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>Picture</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td>{{ p.ProductId }}</td>
+                <td>{{ p.ProductName }}</td>
+                <td>{{ p.Price | currency }}</td>
+                <td>
+                    <img [src]="p.Image" [alt]="p.ProductName" width="80" height="80" class="img-thumbnail" />
+                </td>
+                <td class="align-middle">
+                    <button class="btn btn-primary" style="cursor: pointer;" (click)="viewDetail(p)"
+                        title="Click here to view detail">
+                        Details
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

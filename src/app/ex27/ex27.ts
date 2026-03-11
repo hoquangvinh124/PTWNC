@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ex27Service } from '../services/ex27.service';
 
@@ -8,11 +8,13 @@ import { Ex27Service } from '../services/ex27.service';
   templateUrl: './ex27.html',
   styleUrl: './ex27.css',
 })
-export class Ex27 {
+export class Ex27 implements OnInit {
   data: any;
   errMessage: string = '';
 
-  constructor(private _service: Ex27Service) {
+  constructor(private _service: Ex27Service) { }
+
+  ngOnInit() {
     console.log('Ex27 component initialized');
     this._service.getEx27Data().subscribe({
       next: (data) => {

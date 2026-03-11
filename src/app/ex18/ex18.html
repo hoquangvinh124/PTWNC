@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <h2>Customer List</h2>
+    <div *ngFor="let group of customerGroups" class="mb-4">
+        <h3 class="bg-light p-2">{{ group.CustomterTypeName }}</h3>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of group.Customers">
+                    <td>{{ customer.Id }}</td>
+                    <td>{{ customer.Name }}</td>
+                    <td>{{ customer.Email }}</td>
+                    <td>{{ customer.Age }}</td>
+                    <td>
+                        <img [src]="customer.Image" [alt]="customer.Name" width="50" height="50" class="rounded-circle">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

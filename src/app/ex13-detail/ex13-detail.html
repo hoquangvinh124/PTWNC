@@ -1,0 +1,16 @@
+<div class="container mt-4" *ngIf="selectedProduct">
+    <h2>service-product-image-event-detail works!</h2>
+    <button class="btn btn-secondary mb-3 mt-2" (click)="goBack()">Go Back</button>
+
+    <div class="card" style="width: 18rem;">
+        <img [src]="selectedProduct.Image" class="card-img-top p-3" alt="Product Image" />
+        <div class="card-body">
+            <h5 class="card-title">{{ selectedProduct.ProductName }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>ID:</strong> {{ selectedProduct.ProductId }}</li>
+            <li class="list-group-item"><strong>Name:</strong> {{ selectedProduct.ProductName }}</li>
+            <li class="list-group-item"><strong>Price:</strong> {{ selectedProduct.Price | currency }}</li>
+        </ul>
+    </div>
+</div>
