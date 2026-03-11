@@ -1,41 +1,62 @@
 [
   {
-    "context": ["/exchange"],
+    "context": [
+      "/api"
+    ],
+    "target": "http://localhost:4000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  {
+    "context": [
+      "/exchange"
+    ],
     "target": "https://www.dongabank.com.vn",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   {
-    "context": ["/products"],
+    "context": [
+      "/products"
+    ],
     "target": "https://fakestoreapi.com",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   {
-    "context": ["/v1"],
+    "context": [
+      "/v1"
+    ],
     "target": "https://api.coindesk.com",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   {
-    "context": ["/books"],
+    "context": [
+      "/books"
+    ],
     "target": "http://localhost:3000",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   {
-    "context": ["/upload"],
+    "context": [
+      "/upload"
+    ],
     "target": "http://localhost:3001",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
   },
   {
-    "context": ["/image"],
+    "context": [
+      "/image"
+    ],
     "target": "http://localhost:3001",
     "secure": false,
     "changeOrigin": true,

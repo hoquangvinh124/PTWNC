@@ -1,0 +1,26 @@
+<div class="container mt-4" style="max-width: 860px;" *ngIf="fashion">
+    <button class="btn btn-secondary mb-4" (click)="goBack()">← Quay Lại</button>
+
+    <div class="card shadow">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img [src]="fashion.thumbnail" class="img-fluid rounded-start p-3" [alt]="fashion.title"
+                    style="height: 100%; max-height: 500px; object-fit: cover; width: 100%;"
+                    onerror="this.src='https://via.placeholder.com/300x500/eee/999?text=No+Image'" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <span class="badge bg-primary mb-2">{{ fashion.style }}</span>
+                    <h3 class="card-title">{{ fashion.title }}</h3>
+                    <p class="text-muted small">Ngày tạo: {{ fashion.creationDate | date:'dd/MM/yyyy' }}</p>
+                    <hr>
+                    <div class="fashion-details" [innerHTML]="safeDetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4" *ngIf="!fashion">
+    <div class="alert alert-info">Đang tải thông tin...</div>
+</div>

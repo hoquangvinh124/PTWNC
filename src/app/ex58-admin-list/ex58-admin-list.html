@@ -1,0 +1,47 @@
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>👗 Admin – Quản Lý Fashion (Ex58)</h3>
+        <button class="btn btn-success" (click)="addNew()">+ Thêm Mới</button>
+    </div>
+
+    <div *ngIf="loading" class="text-center py-5">
+        <div class="spinner-border text-primary"></div>
+        <p class="mt-2">Đang tải...</p>
+    </div>
+
+    <table class="table table-bordered table-hover table-striped align-middle" *ngIf="!loading">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Thumbnail</th>
+                <th>Tiêu Đề</th>
+                <th>Style</th>
+                <th>Ngày Tạo</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of fashions; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>
+                    <img [src]="f.thumbnail" [alt]="f.title" width="70" height="90" class="img-thumbnail"
+                        style="object-fit: cover;"
+                        onerror="this.src='https://via.placeholder.com/70x90/ccc/999?text=No+Image'" />
+                </td>
+                <td>{{ f.title }}</td>
+                <td><span class="badge bg-primary">{{ f.style }}</span></td>
+                <td>{{ f.creationDate | date:'dd/MM/yyyy HH:mm' }}</td>
+                <td>
+                    <div class="d-flex gap-1">
+                        <button class="btn btn-sm btn-info text-white" (click)="view(f._id)">Chi tiết</button>
+                        <button class="btn btn-sm btn-warning" (click)="edit(f._id)">Sửa</button>
+                        <button class="btn btn-sm btn-danger" (click)="delete(f._id, f.title)">Xóa</button>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngIf="fashions.length === 0">
+                <td colspan="6" class="text-center text-muted">Chưa có Fashion nào. Hãy thêm mới!</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

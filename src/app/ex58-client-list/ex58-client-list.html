@@ -1,0 +1,46 @@
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>👗 Fashion Styles – Ex58</h3>
+        <!-- Style filter -->
+        <div class="d-flex align-items-center gap-2">
+            <label class="fw-bold mb-0">Lọc theo Style:</label>
+            <select class="form-select" style="width: auto;" [(ngModel)]="selectedStyle"
+                (ngModelChange)="onStyleChange()">
+                <option value="all">-- Tất cả --</option>
+                <option *ngFor="let s of styles" [value]="s">{{ s }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="text-center py-5">
+        <div class="spinner-border text-primary"></div>
+        <p class="mt-2">Đang tải...</p>
+    </div>
+
+    <!-- Grouped by Style -->
+    <ng-container *ngFor="let style of groupKeys">
+        <div class="mb-5">
+            <h4 class="border-bottom pb-2 mb-3">
+                <span class="badge bg-dark me-2">{{ style }}</span>
+                <small class="text-muted fs-6">({{ grouped[style].length }} sản phẩm)</small>
+            </h4>
+            <div class="row g-3">
+                <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let f of grouped[style]">
+                    <div class="card h-100 shadow-sm" style="cursor: pointer;" (click)="viewDetail(f._id)">
+                        <img [src]="f.thumbnail" class="card-img-top" [alt]="f.title"
+                            style="height: 220px; object-fit: cover;"
+                            onerror="this.src='https://via.placeholder.com/300x220/eee/999?text=No+Image'" />
+                        <div class="card-body">
+                            <h6 class="card-title mb-1">{{ f.title }}</h6>
+                            <span class="badge bg-secondary">{{ f.style }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <div *ngIf="!loading && groupKeys.length === 0" class="alert alert-info">
+        Không có Fashion nào với style đã chọn.
+    </div>
+</div>

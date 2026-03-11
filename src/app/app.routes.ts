@@ -16,6 +16,10 @@ import { Ex50BookNew } from './ex50-book-new/ex50-book-new';
 import { Ex50BookEdit } from './ex50-book-edit/ex50-book-edit';
 import { Momo } from './momo/momo';
 import { MomoResult } from './momo-result/momo-result';
+import { Ex58AdminList } from './ex58-admin-list/ex58-admin-list';
+import { Ex58AdminForm } from './ex58-admin-form/ex58-admin-form';
+import { Ex58ClientList } from './ex58-client-list/ex58-client-list';
+import { Ex58ClientDetail } from './ex58-client-detail/ex58-client-detail';
 import { Ex26 } from './ex26/ex26';
 import { Books } from './books/books';
 import { BookDetail } from './book-detail/book-detail';
@@ -46,6 +50,11 @@ export const routes: Routes = [
   { path: 'ex50/book-edit/:id', component: Ex50BookEdit },
   { path: 'momo', component: Momo },
   { path: 'momo/result', component: MomoResult },
+  { path: 'ex58-admin-list', component: Ex58AdminList },
+  { path: 'ex58-admin-form', component: Ex58AdminForm },
+  { path: 'ex58-admin-form/:id', component: Ex58AdminForm },
+  { path: 'ex58-client-list', component: Ex58ClientList },
+  { path: 'ex58-client-detail/:id', component: Ex58ClientDetail },
   { path: 'ex19-service-product', component: Ex19ServiceProduct },
   { path: 'fake-products', component: Ex26 },
   { path: 'books', component: Books },
