@@ -1,0 +1,41 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>📚 Quản Lý Sách – Ex50</h2>
+        <button class="btn btn-success" (click)="createNew()">+ Tạo Mới</button>
+    </div>
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Ảnh Bìa</th>
+                <th>Tiêu Đề</th>
+                <th>Tác Giả</th>
+                <th>Giá</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>
+                    <img [src]="book.Image" [alt]="book.Title" width="60" height="80" class="img-thumbnail"
+                        style="object-fit:cover;" />
+                </td>
+                <td>{{ book.Title }}</td>
+                <td>{{ book.Author }}</td>
+                <td>{{ book.Price | currency:'VND':'symbol':'1.0-0' }}</td>
+                <td class="align-middle">
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-info text-white" (click)="viewDetail(book._id)">Chi Tiết</button>
+                        <button class="btn btn-sm btn-warning" (click)="editBook(book._id)">Sửa</button>
+                        <button class="btn btn-sm btn-danger" (click)="deleteBook(book._id)">Xóa</button>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngIf="books.length === 0">
+                <td colspan="6" class="text-center text-muted">Chưa có sách nào. Hãy thêm sách mới!</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

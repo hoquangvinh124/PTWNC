@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg" style="width: 440px; border-radius: 20px; overflow: hidden;">
+
+        <!-- Header MoMo gradient -->
+        <div class="text-white text-center py-4" style="background: linear-gradient(135deg, #a50064, #d82d8b);">
+            <div style="font-size: 3rem;">💰</div>
+            <h4 class="mb-0 fw-bold">Thanh toán MoMo</h4>
+            <p class="mb-0 opacity-75 small">Ví điện tử MoMo – An toàn & Nhanh chóng</p>
+        </div>
+
+        <div class="card-body p-4">
+
+            <!-- Error message -->
+            <div *ngIf="error" class="alert alert-danger d-flex align-items-center" role="alert">
+                <span class="me-2">⚠️</span> {{ error }}
+            </div>
+
+            <form (ngSubmit)="pay()">
+                <div class="mb-4">
+                    <label class="form-label fw-bold">💵 Số tiền (VNĐ)</label>
+                    <input type="number" class="form-control form-control-lg" [(ngModel)]="amount" name="amount"
+                        [min]="1000" required placeholder="Nhập số tiền..." style="border-radius: 12px;" />
+                    <div class="form-text">Tối thiểu: 1,000 VNĐ</div>
+                </div>
+
+                <!-- Quick amount buttons -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold">⚡ Chọn nhanh</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                            (click)="amount = 10000">10K</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                            (click)="amount = 20000">20K</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                            (click)="amount = 50000">50K</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                            (click)="amount = 100000">100K</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                            (click)="amount = 200000">200K</button>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">📝 Nội dung thanh toán</label>
+                    <input type="text" class="form-control" [(ngModel)]="orderInfo" name="orderInfo" required
+                        placeholder="Mô tả đơn hàng..." style="border-radius: 12px;" />
+                </div>
+
+                <!-- Summary -->
+                <div class="bg-light rounded-3 p-3 mb-4">
+                    <div class="d-flex justify-content-between">
+                        <span class="text-muted">Số tiền:</span>
+                        <strong>{{ amount | currency:'VND':'symbol':'1.0-0' }}</strong>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-muted">Phương thức:</span>
+                        <strong>💜 Ví MoMo</strong>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-lg w-100 text-white fw-bold" [disabled]="loading"
+                    style="background: linear-gradient(135deg, #a50064, #d82d8b); border: none; border-radius: 12px;">
+                    <span *ngIf="!loading">💜 Thanh toán với MoMo</span>
+                    <span *ngIf="loading">
+                        <span class="spinner-border spinner-border-sm me-2"></span>Đang xử lý...
+                    </span>
+                </button>
+            </form>
+
+            <p class="text-center text-muted small mt-3">
+                Bảo mật bởi <strong>MoMo</strong> 🔒 Mã hoá SSL 256-bit
+            </p>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,12 @@ import { Ex13Detail } from './ex13-detail/ex13-detail';
 import { Ex19Product } from './ex19-product/ex19-product';
 import { Ex19ListProduct } from './ex19-list-product/ex19-list-product';
 import { Ex19ServiceProduct } from './ex19-service-product/ex19-service-product';
+import { Ex50Books } from './ex50-books/ex50-books';
+import { Ex50BookDetail } from './ex50-book-detail/ex50-book-detail';
+import { Ex50BookNew } from './ex50-book-new/ex50-book-new';
+import { Ex50BookEdit } from './ex50-book-edit/ex50-book-edit';
+import { Momo } from './momo/momo';
+import { MomoResult } from './momo-result/momo-result';
 import { Ex26 } from './ex26/ex26';
 import { Books } from './books/books';
 import { BookDetail } from './book-detail/book-detail';
@@ -34,6 +40,12 @@ export const routes: Routes = [
   { path: 'ex13/:id', component: Ex13Detail },
   { path: 'ex19-product', component: Ex19Product },
   { path: 'ex19-list-product', component: Ex19ListProduct },
+  { path: 'ex50/books', component: Ex50Books },
+  { path: 'ex50/books/:id', component: Ex50BookDetail },
+  { path: 'ex50/book-new', component: Ex50BookNew },
+  { path: 'ex50/book-edit/:id', component: Ex50BookEdit },
+  { path: 'momo', component: Momo },
+  { path: 'momo/result', component: MomoResult },
   { path: 'ex19-service-product', component: Ex19ServiceProduct },
   { path: 'fake-products', component: Ex26 },
   { path: 'books', component: Books },

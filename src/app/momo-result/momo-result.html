@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-lg text-center" style="width: 420px; border-radius: 20px; overflow: hidden;">
+
+        <!-- SUCCESS state -->
+        <ng-container *ngIf="success">
+            <div class="py-5" style="background: linear-gradient(135deg, #00b09b, #96c93d);">
+                <div style="font-size: 5rem;">✅</div>
+                <h4 class="text-white fw-bold mb-0">Thanh toán thành công!</h4>
+            </div>
+            <div class="card-body p-4">
+                <div class="mb-3 text-start bg-light rounded-3 p-3">
+                    <p class="mb-1"><strong>Mã đơn hàng:</strong> <code>{{ orderId }}</code></p>
+                    <p class="mb-1"><strong>Số tiền:</strong> {{ amount | currency:'VND':'symbol':'1.0-0' }}</p>
+                    <p class="mb-1"><strong>Nội dung:</strong> {{ orderInfo }}</p>
+                    <p class="mb-0"><strong>Mã giao dịch MoMo:</strong> <code>{{ transId }}</code></p>
+                </div>
+                <p class="text-muted small">Cảm ơn bạn đã thanh toán qua MoMo! 💜</p>
+                <button class="btn btn-success w-100 rounded-3" (click)="goHome()">🏠 Về trang chủ</button>
+            </div>
+        </ng-container>
+
+        <!-- FAILURE state -->
+        <ng-container *ngIf="!success">
+            <div class="py-5" style="background: linear-gradient(135deg, #f5515f, #a1051d);">
+                <div style="font-size: 5rem;">❌</div>
+                <h4 class="text-white fw-bold mb-0">Thanh toán thất bại!</h4>
+            </div>
+            <div class="card-body p-4">
+                <div class="mb-3 text-start bg-light rounded-3 p-3">
+                    <p class="mb-1"><strong>Mã lỗi:</strong> <code>{{ resultCode }}</code></p>
+                    <p class="mb-1"><strong>Lý do:</strong> {{ message || 'Giao dịch bị từ chối hoặc hủy' }}</p>
+                    <p class="mb-0"><strong>Mã đơn hàng:</strong> <code>{{ orderId }}</code></p>
+                </div>
+                <p class="text-muted small">Vui lòng thử lại hoặc chọn phương thức khác.</p>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-danger w-50 rounded-3" (click)="goBack()">🔄 Thử lại</button>
+                    <button class="btn btn-outline-secondary w-50 rounded-3" (click)="goHome()">🏠 Trang chủ</button>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- No params yet (empty state) -->
+        <div class="card-body p-4" *ngIf="!resultCode">
+            <p class="text-muted">Không có thông tin giao dịch.</p>
+            <button class="btn btn-primary rounded-3" (click)="goBack()">← Quay lại thanh toán</button>
+        </div>
+
+    </div>
+</div>

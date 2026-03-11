@@ -1,0 +1,24 @@
+<div class="container mt-4" *ngIf="book">
+    <button class="btn btn-secondary mb-3" (click)="goBack()">← Quay Lại</button>
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img [src]="book.Image" class="img-fluid rounded-start p-3" [alt]="book.Title"
+                    style="max-height: 400px; object-fit: cover; width: 100%;" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">{{ book.Title }}</h3>
+                    <p class="card-text"><strong>Tác Giả:</strong> {{ book.Author }}</p>
+                    <p class="card-text"><strong>Giá:</strong> {{ book.Price | currency:'VND':'symbol':'1.0-0' }}</p>
+                    <p class="card-text"><strong>Mô Tả:</strong> {{ book.Description }}</p>
+                    <p class="card-text"><small class="text-muted">ID: {{ book._id }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4" *ngIf="!book">
+    <div class="alert alert-warning">Đang tải thông tin sách...</div>
+</div>
